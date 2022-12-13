@@ -1,0 +1,159 @@
+    1  sudo apt install bcftools
+    2  bcftools
+    3  bcftools query --regions_file CSVD.bed ampliseq_merged.vcf > CSVD_ampliseq_merged.vcf
+    4  bcftools query -R CSVD.bed ampliseq_merged.vcf > CSVD_ampliseq_merged.vcf
+    5  bcftools view -R CSVD.bed ampliseq_merged.vcf > CSVD_ampliseq_merged.vcf
+    6  sudo apt install tabix
+    7  bgzip ampliseq_merged.vcf
+    8  bcftools view -R CSVD.bed ampliseq_merged.vcf.gz > CSVD_ampliseq_merged.vcf
+    9  tabix -v ampliseq_merged.vcf.gz
+   10  tabix -p vcf ampliseq_merged.vcf.gz
+   11  bcftools view -R CSVD.bed ampliseq_merged.vcf.gz > CSVD_ampliseq_merged.vcf
+   12  bgzip illumina_merged.vcf
+   13  tabix -p vcf illumina_merged.vcf.gz
+   14  bcftools view -R CSVD.bed illumina_merged.vcf.gz > CSVD_illumina_merged.vcf
+   15  bcftools isec -p --nfiles=2 -c all -C CSVD_illumina_merged.vcf CSVD_ampliseq_merged.vcf > CSVD_illumina_only.vcf
+   16  bgzip *.vcf
+   17  tabix -p vcf *.vcf.gz
+   18  bgzip CSVD_illumina_merged.vcf
+   19  tabix -p vcf CSVD_illumina_merged.vcf
+   20  tabix -p vcf CSVD_illumina_merged.vcf.gz
+   21  tabix -p vcf CSVD_ampliseq_merged.vcf.gz
+   22  bcftools isec -p --nfiles=2 -c all -C CSVD_illumina_merged.vcf.gz CSVD_ampliseq_merged.vcf.gz > CSVD_illumina_only.vcf
+   23  bcftools isec -p --nfiles=2 -c all -C CSVD_ampliseq_merged.vcf.gz CSVD_illumina_merged.vcf.gz > CSVD_ampliseq_only.vcf
+   24  gunzip CSVD_ampliseq_merged.vcf.gz > CSVD_ampliseq_merged.vcf
+   25  gunzip CSVD_illumina_merged.vcf.gz > CSVD_illumina_merged.vcf
+   26  bgzip CSVD_illumina_merged.vcf.gz 
+   27  bgzip CSVD_illumina_merged.vcf 
+   28  bgzip CSVD_ampliseq_merged.vcf 
+   29  bcftools isec -p illumina_only  -c all -C CSVD_illumina_merged.vcf.gz CSVD_ampliseq_merged.vcf.gz 
+   30  sudo apt install htslib
+   31  git clone
+   32  git clone https://github.com/Ensembl/ensembl-vep.git
+   33  cd ensembl-vep
+   34  perl INSTALL.pl
+   35  perl
+   36  perl cpan App::cpanminus
+   37  cpan App::cpanminus
+   38  cpanm Module::Name
+   39  cpan cpanm Module::Name
+   40  cpanm Archive::Zip
+   41  cd /home/ubuntu
+   42  cpanm Archive::Zip
+   43  sudo apt install capnminus
+   44  cpan Archive::Zip
+   45  ls
+   46  pip install --user vcftoolz
+   47  sudo apt install python3-pip
+   48  pip install --user vcftoolz
+   49  export PATH=~/.local/bin:$PATH
+   50  vcftoolz
+   51  python3 pip install vcftoolz
+   52  python3 pip install --user vcftoolz
+   53  python3
+   54  sudo apt-get install python3-pandas
+   55  vcftoolz
+   56  pip uninstall vcftoolz
+   57  pip install --user vcftoolz
+   58  vcftoolz
+   59  sudo pip install python-dateutil
+   60  vcftoolz
+   61  pip3 install python-dateutil
+   62  vctoolz
+   63  vcftoolz
+   64  ImportError: cannot import name 'ParserError' from 'dateutil.parser' (/usr/lib/python3/dist-packages/dateutil/parser/__init__.py)
+   65  from dateutil.parser import ParserError
+   66  python setup.py install
+   67  python3 setup.py install
+   68  sudo apt-get install python-dateutil
+   69  vcftoolz
+   70  sudo apt-get install python3-dateutil
+   71  pip uninstall vcftoolz
+   72  pip install --user vcftoolz
+   73  vcftoolz
+   74  vcftoolz compare ampliseq_merged.vcf.gz illumina_merged.vcf.gz > Comparison_summary.txt
+   75  vcftoolz plot --exclude_refs --exlude_missing ampliseq_merged.vcf.gz > ampliseq.png
+   76  vcftoolz plot --help
+   77  vcftoolz plot ampliseq_merged.vcf.gz CSVD_Fa.fa > Ampliseq_plot.png
+   78  vcftoolz plot ampliseq_merged.vcf.gz CSVD_Fa.fa Ampliseq_plot.png
+   79  vcftoolz count ampliseq_merged.vcf.gz
+   80  vcftoolz count ampliseq_merged.vcf
+   81  vcftoolz count ampliseq_merged.vcf.gz
+   82  vcftoolz narrow ampliseq_merged.vcf.gz > narrow_ampliseq_merged.tsv
+   83  vcftoolz compare --tabulate ampliseq_merged.vcf.gz illumina_merged.vcf.gz > Merged_comparison_summary.txt
+   84  vcftoolz compare --tabulate merged_table  ampliseq_merged.vcf.gz illumina_merged.vcf.gz > Merged_comparison_summary.txt
+   85  mkdir DGR007
+   86  mkdir DGR019
+   87  mkdir DGR020
+   88  mkdir DGR021
+   89  mkdir DGR022
+   90  mkdir DGR023
+   91  mkdir DGR024
+   92  mkdir DGR025
+   93  mkdir DGR026
+   94  mkdir DGR027
+   95  mkdir DGR028
+   96  mkdir DGR029
+   97  mkdir DGR307
+   98  mkdir DGR320
+   99  mkdir DGR322
+  100  mkdir DGR324
+  101  mkdir DGR325
+  102  mkdir DGR332
+  103  mkdir DGR336
+  104  mkdir DGR343
+  105  mkdir DGR351
+  106  mkdir DGR366
+  107  cd ./DGR025
+  108  vcftoolz compare *.vcf.gz > DGR025_compare.txt
+  109  vcftoolz compare --exclude_ref --exclude_missing --exclude_filtered *.vcf.gz > DGR025_Compare1.txt
+  110  vcftoolz compare --help
+  111  cd /home/ubuntu
+  112  while read x; do cd ./{x}; vcftoolz compare --exclude_ref --exclude_missing --exclude_filtered *.vcf.gz > {$}_Compare1.txt;  done < COMP_DGR.txt
+  113  while read x; do cd home/ubuntu/$x; vcftoolz compare --exclude_ref --exclude_missing --exclude_filtered *.vcf.gz > $x_Compare1.txt;  done < COMP_DGR.txt
+  114  while read x; do cd home/ubuntu/{$x}; vcftoolz compare --exclude_ref --exclude_missing --exclude_filtered *.vcf.gz > {$x}_Compare1.txt;  done < COMP_DGR.txt
+  115  while read x; do cd home/ubuntu/x; vcftoolz compare --exclude_ref --exclude_missing --exclude_filtered *.vcf.gz > x_Compare1.txt;  done < COMP_DGR.txt
+  116  while read x; do cd home/ubuntu/$; vcftoolz compare --exclude_ref --exclude_missing --exclude_filtered *.vcf.gz > $_Compare1.txt;  done < COMP_DGR.txt
+  117  while read x; do cd home/ubuntu/$x; vcftoolz compare --exclude_ref --exclude_missing --exclude_filtered *.vcf.gz > $x_Compare1.txt;  done < COMP_DGR.txt
+  118  while read x; do cd home/ubuntu/"$x"; vcftoolz compare --exclude_ref --exclude_missing --exclude_filtered *.vcf.gz > "$x"_Compare1.txt;  done < COMP_DGR.txt
+  119  cho "# Seq_comp_codes" >> README.md
+  120  git init
+  121  git add README.md
+  122  git commit -m "first commit"
+  123  git branch -M main
+  124  git remote add origin https://github.com/pdunnphd/Seq_comp_codes.git
+  125  git push -u origin main
+  126  ls
+  127  cd ./DGR025
+  128  bcftools isec *.vcf.gz -p DGR025_comp -c 
+  129  bcftools isec DGR025_TSVC_variants.vcf.gz Paul_D_DGR025.hard-filtered.vcf.gz -p DGR025_comp -c 
+  130  bcftools isec -n=2 -w1 DGR025_TSVC_variants.vcf.gz Paul_D_DGR025.hard-filtered.vcf.gz  
+  131  tabix -p vcf *.vcf.gz
+  132  tabix -p vcf DGR025_TSVC_variants.vcf.gz
+  133  tabix -p vcf Paul_D_DGR025.hard-filtered.vcf.gz
+  134  bcftools isec -n=2 -w1 DGR025_TSVC_variants.vcf.gz Paul_D_DGR025.hard-filtered.vcf.gz  
+  135  bcftools isec -n=2 -w1 DGR025_TSVC_variants.vcf.gz Paul_D_DGR025.hard-filtered.vcf.gz  -p DGR025_shared
+  136  bcftools isec ~n10 DGR025_TSVC_variants.vcf.gz Paul_D_DGR025.hard-filtered.vcf.gz  -p DGR025_ampliseq_only
+  137  bcftools isec ~n10 -c all DGR025_TSVC_variants.vcf.gz Paul_D_DGR025.hard-filtered.vcf.gz  -p DGR025_ampliseq_only
+  138  bcftools isec -n-1 -c all  DGR025_TSVC_variants.vcf.gz Paul_D_DGR025.hard-filtered.vcf.gz  -p DGR025_ampliseq_only
+  139  bcftools isec DGR025_TSVC_variants.vcf.gz Paul_D_DGR025.hard-filtered.vcf.gz  -p DGR025_isec
+  140  cd /home/ubuntu/DGR028
+  141  tabix -p vcf DGR028_TSVC_variants.vcf.gz
+  142  tabix -p vcf Paul_D_DGR028.hard-filtered.vcf.gz
+  143  bcftools isec -p DGR028_isec DGR028_TSVC_variants.vcf.gz Paul_D_DGR028.hard-filtered.vcf.gz
+  144  bcftools isec -n=2 -w1 -p DGR028_shared DGR028_TSVC_variants.vcf.gz Paul_D_DGR028.hard-filtered.vcf.gz
+  145  /home/ubuntu/DGR307
+  146  cd /home/ubuntu/DGR307
+  147  tabix -p vcf DGR307_TSVC_variants.vcf.gz
+  148  tabix -p vcf DGR307_TSVC_variants_IonXpress_013.vcf.gz
+  149  tabix -p vcf Paul_D_DGR307.hard-filtered.vcf.gz
+  150  bcftools isec -p DGR307_isec DGR307_TSVC_variants_IonXpress_13.vcf.gz Paul_D_DGR307.hard-filtered.vcf.gz
+  151  bcftools isec -p DGR307_isec DGR307_TSVC_variants_IonXpress_013.vcf.gz Paul_D_DGR307.hard-filtered.vcf.gz
+  152  cd /home/ubuntu
+  153  bcftools stats ampliseq_merged.vcf.gz illumina_merged.vcf.gz 
+  154  bcftools stats ampliseq_merged.vcf.gz illumina_merged.vcf.gz > ampliseq_vs_illumina
+  155  bcftools plot-vcfstats -p Comparison_vcf ampliseq_vs_illumina
+  156  plot-vcfstats -p Comparison_vcf ampliseq_vs_illumina
+  157  plot-vcfstats -p Comparison_vcf1 -T Merged_ampliseq_vs_illumina  ampliseq_vs_illumina
+  158  history
+  159  history > 13.12.22_bash_codes
